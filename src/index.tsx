@@ -1,8 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import back from "./assets/01.png";
+import Router from "./Router";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
+import "@styles/global.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <h1>Omni</h1>
+  <Provider store={store}>
+    <Router />
+  </Provider>
 );

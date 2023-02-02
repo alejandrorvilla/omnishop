@@ -17,6 +17,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
       '@styles': path.resolve(__dirname, './src/styles/'),
+      "@images": path.resolve(__dirname, "./src/assets/img/"),
     }
   },
   module: {
@@ -42,7 +43,7 @@ module.exports = {
         ],
       },
       {
-        test: /\\.(png|jp(e*)g|svg|gif)$/,
+        test: /\.png?$/,
         type: "asset/resource",
       },
     ],

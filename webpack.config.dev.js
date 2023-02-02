@@ -6,12 +6,14 @@ module.exports = {
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    filename: "[name].js",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
     alias: {
       "@styles": path.resolve(__dirname, "./src/styles/"),
+      "@images": path.resolve(__dirname, "./src/assets/img/"),
+      "@fonts": path.resolve(__dirname, "./src/assets/fonts/"),
     },
   },
   mode: "development",
@@ -37,6 +39,20 @@ module.exports = {
       {
         test: /\.png?$/,
         type: "asset/resource",
+      },
+      {
+        test: /\.(woff|woff2)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 10000,
+            mimetype: "application/font-woff",
+            name: "[name].[ext]",
+            outputPath: "./assets/fonts/",
+            publicPath: "./assets/fonts/",
+            esModule: false,
+          },
+        },
       },
     ],
   },
