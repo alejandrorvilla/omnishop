@@ -1,0 +1,31 @@
+.o-main {
+  height: 100%;
+  background-image: url("@images/01.png");
+  background-size: 100% 100%;
+}
+
+.o-main .o-main-content {
+    padding: 2rem;
+}
+
+.o-main .o-main-forms {
+  display: flex;
+  justify-content: center;
+  height: 50%;
+}
+
+.o-main h1 {
+  color: var(--normal-white);
+  margin-bottom: 0.2rem;
+}
+
+.o-main h1 span {
+  color: var(--light-purple);
+}
+
+.o-main p {
+  color: var(--normal-white);
+  font-size: 12px;
+  margin-top: 0;
+  margin-bottom: 5rem;
+}

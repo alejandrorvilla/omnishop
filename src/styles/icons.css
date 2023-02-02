@@ -1,0 +1,33 @@
+:root {
+  --omnishop-icon-logo: "a";
+  --omnishop-icon-heart: "b";
+  --omnishop-icon-password: "c";
+}
+
+@font-face {
+  font-family: "OmnishopIcons";
+  src: url("@fonts/icons/omnishop.eot");
+  src: url("@fonts/icons/omnishop.eot?#iefix") format("embedded-opentype"),
+    url("@fonts/icons/omnishop.woff") format("woff"),
+    url("@fonts/icons/omnishop.ttf") format("truetype"),
+    url("@fonts/icons/omnishop.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.smf,
+.smf:before {
+  font-family: OmnishopIcons, sans-serif;
+}
+
+.smf.smf-logo:before {
+  content: var(--omnishop-icon-logo);
+}
+
+.smf.smf-heart:before {
+  content: var(--omnishop-icon-heart);
+}
+
+.smf.smf-password:before {
+  content: var(--omnishop-icon-password);
+}
