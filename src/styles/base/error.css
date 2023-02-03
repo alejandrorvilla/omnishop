@@ -2,4 +2,5 @@
   letter-spacing: 0;
   color: var(--error-color);
   font-size: var(--font-size-xs);
+  margin-bottom: .5rem;
 }

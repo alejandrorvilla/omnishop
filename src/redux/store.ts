@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import { LoginReducer, ILoginState } from "./reducers/login";
+import { SigninReducer, ISigninState } from "./reducers/signin";
 import rootSaga from "./middlewares";
 
 export const store = (() => {
@@ -8,6 +9,7 @@ export const store = (() => {
   const store = configureStore({
     reducer: {
       login: LoginReducer,
+      signin: SigninReducer,
     },
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat(sagaMiddleware),
@@ -20,4 +22,5 @@ export const store = (() => {
 
 export interface IReducer {
   login: ILoginState;
+  signin: ISigninState;
 }

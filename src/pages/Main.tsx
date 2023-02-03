@@ -3,6 +3,7 @@ import Header from "../components/main/Header";
 import "@styles/main/main.css";
 import TabContainer from "../components/main/TabContainer";
 import LoginForm from "../components/main/LoginForm";
+import SignInForm from "../components/main/SignInForm";
 
 function Main() {
   return (
@@ -21,7 +22,11 @@ function Main() {
               {
                 text: "Ingreso",
                 content: <LoginForm />,
-              }
+              },
+              {
+                text: "Registro",
+                content: <SignInForm />,
+              },
             ]}
           />
         </div>
