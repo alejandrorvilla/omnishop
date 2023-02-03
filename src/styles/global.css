@@ -9,7 +9,7 @@
 
   --error-color: #ff006c;
 
-  --font-size-xs: 0.8rem;
+  --font-size-xs: 0.7rem;
   --font-size-s: 0.9rem;
   --font-size-m: 1.2rem;
 
@@ -66,5 +66,5 @@ body {
 h2 {
   color: #7315be;
   font-size: var(--font-size-s);
-  font-weight: normal;
+  font-weight: bold;
 }

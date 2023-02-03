@@ -4,6 +4,7 @@
   border: 0.5px solid var(--normal-purple);
   min-width: 5.5rem;
   cursor: pointer;
+  color: var(--normal-purple);
 }
 
 .o-button.o-button-purple {
