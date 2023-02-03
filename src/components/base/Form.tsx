@@ -4,9 +4,18 @@ import Button from "./Button";
 import Error from "./Error";
 import InputField from "./InputField";
 import "@styles/base/form.css";
+import PasswordField from "./PasswordField";
+import CheckBox from "./CheckBox";
 
 function Form(props: IProps) {
-  const { inputs, textButton, errorMessage, onSubmit } = props;
+  const {
+    inputs,
+    textButton,
+    errorMessage,
+    onSubmit,
+    usePasswordField,
+    title,
+  } = props;
   const formRef = useRef();
   const { validateInput, validateForm, isFormValid } = useValidateForm(inputs);
 
@@ -29,14 +38,37 @@ function Form(props: IProps) {
 
   return (
     <form className="o-form" ref={formRef} onSubmit={handlerOnSubmit}>
+      <h2>{title}</h2>
       {inputs.map((input) => {
-        const { name } = input;
+        const { name, type, errorMessage } = input;
+
+        if (type === "password" && usePasswordField) {
+          return (
+            <PasswordField
+              key={name}
+              name={name}
+              placeholder={input.placeholder}
+              type={type}
+              required={true}
+              error={!input.isValid}
+              errorMessage={errorMessage}
+              onChange={(event) => {
+                validateInput(input, event.target.value);
+              }}
+            />
+          );
+        }
+
+        if (type === "checkbox") {
+          return <CheckBox key={name} name={name} text={input.label} />;
+        }
+
         return (
           <InputField
             key={name}
             name={name}
             placeholder={input.placeholder}
-            type={input.type}
+            type={type}
             required={true}
             error={!input.isValid}
             onChange={(event) => {
@@ -45,16 +77,15 @@ function Form(props: IProps) {
           />
         );
       })}
-      {errorMessage ||
-        (!isFormValid && (
-          <Error
-            message={
-              errorMessage
-                ? errorMessage
-                : "Por favor, diligencia los campos marcados"
-            }
-          />
-        ))}
+      {(errorMessage || !isFormValid) && (
+        <Error
+          message={
+            errorMessage
+              ? errorMessage
+              : "Por favor, diligencia los campos marcados"
+          }
+        />
+      )}
       <Button type="submit" text={textButton} />
     </form>
   );
@@ -62,8 +93,10 @@ function Form(props: IProps) {
 
 interface IProps {
   inputs: IInput[];
+  title: string;
   textButton: string;
   errorMessage?: string;
+  usePasswordField?: boolean;
   onSubmit: (data: Record<string, string>) => void;
 }
 
