@@ -61,6 +61,7 @@ function SignInForm() {
       onSubmit={onSubmit}
       textButton="Regístrate"
       errorMessage={errorApi}
+      title="Completa tus datos para registrarte"
     />
   );
 }

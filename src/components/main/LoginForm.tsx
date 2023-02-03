@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "../base/Button";
 import CheckBox from "../base/CheckBox";
 import InputField from "../base/InputField";
@@ -10,36 +10,57 @@ import { Login } from "../../redux/actions/login";
 import { IReducer } from "../../redux/store";
 import "@styles/main/loginForm.css";
 import PasswordField from "../base/PasswordField";
+import Form from "../base/Form";
+import { IInput } from "../../hooks/useValidateForm";
 
 function LoginForm() {
-  const formRef = useRef();
+  const [isUsernameValid, setUserNameValid] = useState(true);
+  const [isPasswordValid, setPasswordValid] = useState(true);
   const dispatch = useDispatch();
-  const error = useSelector((state: IReducer) => state.login.error);
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const formData = new FormData(formRef.current);
+  const errorApi = useSelector((state: IReducer) => state.login.error);
+  const inputsList: IInput[] = [
+    {
+      name: "email",
+      type: "text",
+      placeholder: "Email o nombre de usuario",
+      setValid: setUserNameValid,
+      isValid: isUsernameValid,
+    },
+    {
+      name: "password",
+      type: "password",
+      placeholder: "Ingresa contraseña",
+      setValid: setPasswordValid,
+      isValid: isPasswordValid,
+      errorMessage: errorApi,
+    },
+    {
+      name: "subscribe",
+      type: "checkbox",
+      label: "Subscribete al newsletter",
+    },
+  ];
+
+  const onSubmit = (data: Record<string, string>) => {
     dispatch(
       Login({
-        username: formData.get("user") as string,
-        password: formData.get("password") as string,
+        username: data.user as string,
+        password: data.password as string,
       })
     );
   };
 
   return (
-    <form className="o-login-form" ref={formRef} onSubmit={onSubmit}>
-      <h2>Ingresa con tus datos</h2>
-      <InputField placeholder="Email o nombre de usuario" name="user" />
-      <PasswordField
-        placeholder="Ingresa contraseña"
-        name="password"
-        error={!!error}
+    <div>
+      <Form
+        inputs={inputsList}
+        onSubmit={onSubmit}
+        textButton="Regístrate"
+        title="Ingresa con tus datos"
+        usePasswordField={true}
       />
-      {error && <Error message={error} />}
-      <CheckBox text="Subscribete al newsletter" name="subscribe" />
-      <Button type="submit" text="Ingresa" />
       <Link text="¿Olvidaste tu contraseña?" href="https://www.google.com" />
-    </form>
+    </div>
   );
 }
 

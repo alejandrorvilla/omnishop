@@ -5,7 +5,7 @@ const useValidateForm = (inputsList: IInput[]) => {
 
   const validateInput = (input: IInput, value: string) => {
     const { type } = input;
-    if (!value) {
+    if (!value && type !== "checkbox") {
       input.setValid(false);
       return false;
     }
@@ -20,7 +20,7 @@ const useValidateForm = (inputsList: IInput[]) => {
       return false;
     }
 
-    input.setValid(true);
+    type !== "checkbox" && input.setValid(true);
     return true;
   };
 
@@ -44,10 +44,12 @@ const useValidateForm = (inputsList: IInput[]) => {
 
 export interface IInput {
   name: string;
-  type: "text" | "email" | "password";
-  setValid: (isInputValid: boolean) => void;
+  type: "text" | "email" | "password" | "checkbox";
   placeholder?: string;
+  label?: string;
   isValid?: boolean;
+  setValid?: (isInputValid: boolean) => void;
+  errorMessage?: string;
 }
 
 export default useValidateForm;
