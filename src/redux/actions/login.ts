@@ -11,4 +11,6 @@ export const ManageError = createAction<PayloadCreator<number>>(
   "[Login] Manage error"
 );
 
+export const RestoreState = createAction("[Login] restore state");
+
 type PayloadCreator<P> = P | Error;

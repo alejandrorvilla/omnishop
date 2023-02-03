@@ -1,0 +1,25 @@
+.o-success-login {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("@images/03.png");
+  background-size: 100% 100%;
+}
+
+.o-success-login .o-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 1rem;
+}
+
+.o-success-login .o-content img {
+  width: 4rem;
+}
+
+@media only screen and (max-width: 715px) {
+  .o-success-login .o-content h1 {
+    width: 50%;
+  }
+}
