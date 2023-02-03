@@ -1,26 +1,23 @@
-import React, { useEffect, useRef, useState } from "react";
-import Button from "../base/Button";
-import CheckBox from "../base/CheckBox";
-import InputField from "../base/InputField";
+import React, { useEffect, useState } from "react";
 import Link from "../base/Link";
-import Error from "../base/Error";
 import { useDispatch } from "react-redux/es/exports";
 import { useSelector } from "react-redux/es/hooks/useSelector";
-import { Login } from "../../redux/actions/login";
+import { Login, RestoreState } from "../../redux/actions/login";
 import { IReducer } from "../../redux/store";
 import "@styles/main/loginForm.css";
-import PasswordField from "../base/PasswordField";
 import Form from "../base/Form";
 import { IInput } from "../../hooks/useValidateForm";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
   const [isUsernameValid, setUserNameValid] = useState(true);
   const [isPasswordValid, setPasswordValid] = useState(true);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const errorApi = useSelector((state: IReducer) => state.login.error);
+  const { error, success } = useSelector((state: IReducer) => state.login);
   const inputsList: IInput[] = [
     {
-      name: "email",
+      name: "username",
       type: "text",
       placeholder: "Email o nombre de usuario",
       setValid: setUserNameValid,
@@ -32,7 +29,7 @@ function LoginForm() {
       placeholder: "Ingresa contraseña",
       setValid: setPasswordValid,
       isValid: isPasswordValid,
-      errorMessage: errorApi,
+      errorMessage: error,
     },
     {
       name: "subscribe",
@@ -44,18 +41,27 @@ function LoginForm() {
   const onSubmit = (data: Record<string, string>) => {
     dispatch(
       Login({
-        username: data.user as string,
+        username: data.username as string,
         password: data.password as string,
       })
     );
   };
+
+  useEffect(() => {
+    if (success) {
+      navigate("/login");
+    }
+    return () => {
+      dispatch(RestoreState());
+    };
+  }, [success]);
 
   return (
     <div>
       <Form
         inputs={inputsList}
         onSubmit={onSubmit}
-        textButton="Regístrate"
+        textButton="Ingresa"
         title="Ingresa con tus datos"
         usePasswordField={true}
       />

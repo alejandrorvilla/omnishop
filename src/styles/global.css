@@ -8,10 +8,12 @@
   --normal-white: #ffffff;
 
   --error-color: #ff006c;
+  --mask-color: #202329cc;
 
   --font-size-xs: 0.7rem;
   --font-size-s: 0.9rem;
   --font-size-m: 1.2rem;
+  --font-size-l: 2.25rem;
 
   --icon-xxl: 2.5rem;
 }
@@ -61,6 +63,11 @@ body,
 
 body {
   margin: 0;
+}
+
+h1 {
+  font-size: var(--font-size-l);
+  color: var(--normal-white);
 }
 
 h2 {

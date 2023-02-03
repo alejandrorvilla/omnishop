@@ -5,7 +5,7 @@
 }
 
 .o-main .o-main-content {
-    padding: 2rem;
+  padding: 2rem;
 }
 
 .o-main .o-main-forms {
@@ -15,7 +15,6 @@
 }
 
 .o-main h1 {
-  color: var(--normal-white);
   margin-bottom: 0.2rem;
 }
 
