@@ -1,6 +1,6 @@
 import { AnyAction, createReducer } from "@reduxjs/toolkit";
 import { Reducer } from "redux";
-import UserStorage from "../../utils/UserStorage";
+import LoginStorage from "../../utils/LoginStorage";
 import * as Actions from "../actions/login";
 
 export interface ILoginState {
@@ -20,7 +20,7 @@ const login = (state: ILoginState) => {
 
 const manageLogin = (state: ILoginState, action: AnyAction) => {
   const { payload } = action;
-  UserStorage.saveUserInfo(payload);
+  LoginStorage.saveUserSession(payload);
   state.tokenSession = payload.token;
   state.isLoading = false;
   state.success = true;

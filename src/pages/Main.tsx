@@ -24,10 +24,6 @@ function Main() {
     }
   }, []);
 
-  useEffect(() => {
-    if (tokenSession) navigate("/shop/1");
-  }, [tokenSession]);
-
   return (
     <div className={`o-main`}>
       {isLoading && <Mask />}

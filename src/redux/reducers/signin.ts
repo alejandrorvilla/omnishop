@@ -24,7 +24,7 @@ const manageSignin = (state: ISigninState) => {
 
 const manageError = (state: ISigninState) => {
   state.isLoading = false;
-  state.error = "Ocurrió un error inesperado";
+  state.error = "El usuario ya existe";
 };
 
 const restoreSuccess = (state: ISigninState) => {

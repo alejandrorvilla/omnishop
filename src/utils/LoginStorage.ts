@@ -1,16 +1,16 @@
 import { IUser } from "../model/user";
 
-const UserStorage: IUserStorage = (() => {
+const LoginStorage: ILoginStorage = (() => {
   const USER_KEY = "userInfo";
 
   return {
-    saveUserInfo: (user: IUser) => {
+    saveUserSession: (user: IUser) => {
       if (user) {
         localStorage.setItem(USER_KEY, JSON.stringify(user));
       }
     },
 
-    getUserInfo: () => {
+    getUserSession: () => {
       const userInfo = localStorage.getItem(USER_KEY);
       if (userInfo) {
         return JSON.parse(userInfo);
@@ -20,9 +20,9 @@ const UserStorage: IUserStorage = (() => {
   };
 })();
 
-interface IUserStorage {
-  saveUserInfo: (user: IUser) => void;
-  getUserInfo: () => IUser | null;
+interface ILoginStorage {
+  saveUserSession: (user: IUser) => void;
+  getUserSession: () => IUser | null;
 }
 
-export default UserStorage;
+export default LoginStorage;
