@@ -1,0 +1,21 @@
+.o-product-sizes {
+  display: flex;
+  gap: 1rem;
+}
+.o-product-sizes .o-size {
+  cursor: pointer;
+  font-size: var(--font-size-s);
+  font-weight: bolder;
+  height: 24px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.o-product-sizes .o-size.o-size-selected {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: inset 0px 3px 6px #00000029;
+  border: 1px solid #7315be;
+  border-radius: 4px;
+  color: #7315be;
+}

@@ -9,7 +9,7 @@ function PasswordField(props: IInputProps) {
     <div className="o-passwordfield">
       <InputField {...props} type={isPasswordHide ? "password" : "text"} />
       <a
-        className={`smf smf-password ${isPasswordHide ? "" : "o-selected"}`}
+        className={`icon icon-password ${isPasswordHide ? "" : "o-selected"}`}
         onClick={() => {
             setPasswordHide(!isPasswordHide);
         }}
