@@ -1,0 +1,5 @@
+.o-product-punctuation .icon-star,
+.o-product-punctuation .icon-star-empty {
+  color: var(--dark-purple);
+  font-size: 1.5rem;
+}

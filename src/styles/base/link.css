@@ -1,0 +1,6 @@
+.o-link {
+    color: var(--text-purple);
+    text-decoration: none;
+    font-size: var(--font-size-s);
+    margin: 1rem 0;
+}

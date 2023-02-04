@@ -1,0 +1,14 @@
+.o-main-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.o-main-header .o-img-logo {
+    width:  60px;
+    height: 47px;
+}
+
+.o-main-header .o-img-group {
+    width:  64px;
+    height: 64px;
+}
