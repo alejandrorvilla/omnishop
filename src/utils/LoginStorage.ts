@@ -17,12 +17,17 @@ const LoginStorage: ILoginStorage = (() => {
       }
       return null;
     },
+
+    removeSession: () => {
+      localStorage.removeItem(USER_KEY);
+    },
   };
 })();
 
 interface ILoginStorage {
   saveUserSession: (user: IUser) => void;
   getUserSession: () => IUser | null;
+  removeSession: () => void;
 }
 
 export default LoginStorage;

@@ -28,3 +28,7 @@ export function* validateSession() {
     yield put({ type: LoginActions.ManageLogin.type, payload: data });
   }
 }
+
+export function* logout() {
+  LoginStorage.removeSession();
+}
