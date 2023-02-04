@@ -13,4 +13,8 @@ export const ManageError = createAction<PayloadCreator<number>>(
 
 export const RestoreState = createAction("[Login] restore state");
 
+export const ValidateSession = createAction<PayloadCreator<ILogin>>(
+  "[Login] validate session in localStorage"
+);
+
 type PayloadCreator<P> = P | Error;

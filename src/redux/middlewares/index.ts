@@ -8,6 +8,15 @@ import * as ProductMiddlewares from "./product";
 
 export default function* rootSaga() {
   yield takeLatest(LoginActions.Login.type, LoginMiddlewares.login);
+  yield takeLatest(
+    LoginActions.ValidateSession.type,
+    LoginMiddlewares.validateSession
+  );
+
   yield takeLatest(SigninActions.Signin.type, SigninMiddlewares.signin);
-  yield takeLatest(ProductActions.LoadProducts.type, ProductMiddlewares.loadProducts);
+
+  yield takeLatest(
+    ProductActions.LoadProducts.type,
+    ProductMiddlewares.loadProducts
+  );
 }
