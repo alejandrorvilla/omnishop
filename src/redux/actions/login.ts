@@ -17,4 +17,6 @@ export const ValidateSession = createAction<PayloadCreator<ILogin>>(
   "[Login] validate session in localStorage"
 );
 
+export const Logout = createAction("[Login] Logout");
+
 type PayloadCreator<P> = P | Error;

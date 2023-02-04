@@ -30,7 +30,7 @@ function ProductDetail() {
 
   useEffect(() => {
     if (!tokenSession) navigate("/");
-  }, []);
+  }, [tokenSession]);
 
   useEffect(() => {
     setProductSelected(products.find((product) => product.id === productId));

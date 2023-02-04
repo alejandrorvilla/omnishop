@@ -43,9 +43,14 @@ const restoreSuccess = (state: ILoginState) => {
   state.success = false;
 };
 
+const logout = (state: ILoginState) => {
+  state.tokenSession = "";
+};
+
 export const LoginReducer: Reducer<ILoginState> = createReducer(defaultState, {
   [Actions.Login.type]: login,
   [Actions.ManageLogin.type]: manageLogin,
   [Actions.ManageError.type]: manageError,
   [Actions.RestoreState.type]: restoreSuccess,
+  [Actions.Logout.type]: logout,
 });
