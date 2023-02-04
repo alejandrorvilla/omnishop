@@ -1,0 +1,37 @@
+.o-header {
+  position: fixed;
+  width: 100%;
+  height: 4rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+
+.o-header .o-link-header {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.o-header .o-link-header img {
+    width: 1.5rem;
+}
+
+.o-header .o-icon-header {
+  background-color: var(--normal-white);
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -10%;
+  right: -2%;
+  border-radius: 2rem;
+}
+
+.o-header .o-icon-header img {
+    width: 2rem;
+}

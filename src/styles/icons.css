@@ -2,6 +2,8 @@
   --omnishop-icon-logo: "a";
   --omnishop-icon-heart: "b";
   --omnishop-icon-password: "c";
+  --omnishop-icon-star_empty: "d";
+  --omnishop-icon-star: "e";
 }
 
 @font-face {
@@ -15,19 +17,27 @@
   font-style: normal;
 }
 
-.smf,
-.smf:before {
+.icon,
+.icon:before {
   font-family: OmnishopIcons, sans-serif;
 }
 
-.smf.smf-logo:before {
+.icon.icon-logo:before {
   content: var(--omnishop-icon-logo);
 }
 
-.smf.smf-heart:before {
+.icon.icon-heart:before {
   content: var(--omnishop-icon-heart);
 }
 
-.smf.smf-password:before {
+.icon.icon-password:before {
   content: var(--omnishop-icon-password);
+}
+
+.icon.icon-star-empty:before {
+  content: var(--omnishop-icon-star_empty);
+}
+
+.icon.icon-star:before {
+  content: var(--omnishop-icon-star);
 }

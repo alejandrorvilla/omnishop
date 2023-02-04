@@ -1,0 +1,33 @@
+.o-related-products {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 0;
+}
+.o-related-products .o-related-content {
+  display: flex;
+  overflow: auto;
+  gap: 0 1rem;
+}
+.o-related-products .o-related-content .o-related-product {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  width: 132px;
+}
+
+.o-related-products .o-related-content .o-related-product img {
+  border-radius: 8px;
+  height: 132px;
+  width: 132px;
+}
+
+.o-related-products .o-related-content .o-related-product h3 {
+  color: #343434;
+  font-size: var(--font-size-s);
+  margin: 0.5rem 0;
+}
+
+.o-related-products .o-related-content .o-related-product span {
+  color: #6200ff;
+  font-size: var(--font-size-s);
+}

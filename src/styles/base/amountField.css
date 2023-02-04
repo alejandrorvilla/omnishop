@@ -1,0 +1,26 @@
+.o-amountfield {
+  position: relative;
+}
+
+.o-amountfield input {
+  height: 100%;
+  text-align: center;
+  border: 0.5px solid #9b4bf8;
+  border-radius: 12px;
+}
+
+.o-amountfield a {
+  position: absolute;
+  top: 11px;
+  color: #7315be;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.o-amountfield .o-increase {
+  right: 20%;
+}
+
+.o-amountfield .o-decrease {
+  left: 20%;
+}
