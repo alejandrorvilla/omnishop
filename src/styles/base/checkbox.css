@@ -4,7 +4,7 @@
 }
 
 .o-checkbox label {
-  color: #7315be;
+  color: var(--text-purple);
   font-size: var(--font-size-s);
   cursor: pointer;
 }
@@ -12,7 +12,7 @@
 .o-checkbox input {
   width: 1rem;
   height: 1rem;
-  color: #7315be;
+  color: var(--text-purple);
   vertical-align: middle;
   -webkit-appearance: none;
   background: none;

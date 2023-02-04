@@ -55,7 +55,7 @@
 }
 
 .o-product .o-product-info .o-product-price .o-before-price {
-  color: #7315be;
+  color: var(--text-purple);
   text-decoration: line-through;
 }
 
