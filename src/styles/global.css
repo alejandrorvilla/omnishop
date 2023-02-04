@@ -5,9 +5,14 @@
   --normal-purple: #9b4bf8;
   --light-purple: #ffd5fc;
 
+  --text-purple: #7315be;
+
   --normal-white: #ffffff;
 
-  --light-gray: #CFCDCD;
+  --border-input: #edf1f7;
+  --dark-gray: #797979;
+  --normal-gray: #9f9f9f;
+  --light-gray: #b9b9b9;
 
   --error-color: #ff006c;
   --mask-color: #202329cc;
@@ -73,7 +78,7 @@ h1 {
 }
 
 h2 {
-  color: #7315be;
+  color: var(--text-purple);
   font-size: var(--font-size-s);
   font-weight: bold;
 }
